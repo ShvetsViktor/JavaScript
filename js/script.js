@@ -543,3 +543,15 @@ console.log(c1, c2, c3);
 console.log(transferWaitors(restorantData));
 console.log(restorantData);
 >>>>>>> c9d53cb (recursion)
+
+
+// const arr = [ 'apple', 'mango', 'papaya', 'dorian', 'greypfruit' ];
+
+const arr = [1, 35, 13, 2, 23 ];
+arr.sort(compareNum);
+
+console.log(arr);
+
+function compareNum(a, b) {
+    return a - b;
+}
