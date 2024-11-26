@@ -1,13 +1,12 @@
 "use strict"
 
+// const arr = [ 'apple', 'mango', 'papaya', 'dorian', 'greypfruit' ];
 
-const arr = [2, 3, 6, 8, 10];
+const arr = [1, 35, 13, 2, 23 ];
+arr.sort(compareNum);
 
-// далее идет метод с колбэк функцией. сначала выполняется метод, а потом колбэки
-arr.forEach(function(item/* значение элемента */, i/* индекс элемента */, arr/* ссылка на массив */){
-    console.log(`${i}: ${item} внутри массива ${arr}`)
-});
+console.log(arr);
 
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i])
-// }
+function compareNum(a, b) {
+    return a - b;
+}
