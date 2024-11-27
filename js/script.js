@@ -42,14 +42,14 @@ console.log(numbers)
 
 console.log(Object.assign(numbers, add));
 
-const add = {
-    d: 23,
-    e: 34
-}
+const q = {
+    one: 1,
+    two: 2
+};
 
-const clone = Object.assign({}, add);
+newObj = {...q};
 
-clone.d = 20;
+q.one = '3';
 
-console.log(add);
-console.log(clone);
+console.log(newObj);
+console.log(q);
