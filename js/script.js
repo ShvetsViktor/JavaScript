@@ -1,13 +1,44 @@
 "use strict"
 
+function copy(mainObj) {
+    let copyObj = {};
 
-const arr = [2, 3, 6, 8, 10];
+    let key;
+    for (key in mainObj) {
+        copyObj[key] = mainObj[key]
+    }
+    return copyObj
+}
 
-// далее идет метод с колбэк функцией. сначала выполняется метод, а потом колбэки
-arr.forEach(function(item/* значение элемента */, i/* индекс элемента */, arr/* ссылка на массив */){
-    console.log(`${i}: ${item} внутри массива ${arr}`)
-});
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
 
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i])
-// }
+};
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 10;
+
+console.log(newNumbers)
+console.log(numbers)
+
+
+
+console.log(Object.assign(numbers, add));
+
+const add = {
+    d: 23,
+    e: 34
+}
+
+const clone = Object.assign({}, add);
+
+clone.d = 20;
+
+console.log(add);
+console.log(clone);
