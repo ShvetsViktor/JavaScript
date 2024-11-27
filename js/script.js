@@ -42,6 +42,18 @@ console.log(numbers)
 
 console.log(Object.assign(numbers, add));
 
+const add = {
+    d: 23,
+    e: 34
+}
+
+const clone = Object.assign({}, add);
+
+clone.d = 20;
+
+console.log(add);
+console.log(clone);
+
 const q = {
     one: 1,
     two: 2
