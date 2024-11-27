@@ -75,10 +75,37 @@ const newNumbers = copy(numbers);
 
 newNumbers.a = 10;
 
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[0] = 'z';
+
+console.log(newArray);
+console.log(oldArray);
+
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'drupal', 'joomla', 'Squarespace'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [2, 5, 7];
+
+log(...num);
+
+const array = ['a', 'b'];
+
 // console.log(newNumbers)
 // console.log(numbers)
 
 
+const newAarray = [...array];
 
 const personalPlanPeter = {
     name: "Peter",
@@ -217,15 +244,16 @@ const array = ['a', 'b'];
 const newAarray = [...array];
 
 console.log(newAarray);
+console.log(newAarray);
 
-const add = {
-    d: 23,
-    e: 34
-}
+const q = {
+    one: 1,
+    two: 2
+};
 
-const clone = Object.assign({}, add);
+newObj = {...q};
 
-clone.d = 20;
+q.one = '3';
 
 console.log(add);
 console.log(clone);
@@ -555,3 +583,5 @@ console.log(arr);
 function compareNum(a, b) {
     return a - b;
 }
+console.log(newObj);
+console.log(q);
