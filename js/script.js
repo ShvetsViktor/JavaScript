@@ -1,44 +1,45 @@
 "use strict"
 
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function(object) {
+        const {age} = object;
+        const {languages} = object.skills;
+        let str = `Мне ${age} и я владею языками: `; 
+        languages.forEach(function(lang) {
+            str += `${lang.toUpperCase()} `;
+        });
 
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();
-
-newArray[0] = 'z';
-
-console.log(newArray);
-console.log(oldArray);
-
-const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'drupal', 'joomla', 'Squarespace'],
-      internet = [...video, ...blogs, 'vk', 'facebook'];
-
-console.log(internet);
-
-function log(a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
-}
-
-const num = [2, 5, 7];
-
-log(...num);
-
-const array = ['a', 'b'];
-
-const newAarray = [...array];
-
-console.log(newAarray);
-
-const q = {
-    one: 1,
-    two: 2
+        return str;
+    }
 };
 
-newObj = {...q};
+function showExperience(plan) {
+    const {exp} = plan.skills;
+    return exp;
+}
 
-q.one = '3';
+console.log(showExperience(personalPlanPeter));
 
-console.log(newObj);
-console.log(q);
+function showProgrammingLangs(plan) {
+    const programmingLangs = plan.skills.programmingLangs;
+    let str = '';
+    for (let i in programmingLangs) {
+        str += `Язык ${i} изучен на ${programmingLangs[i]}\n`
+    }
+    return str;
+}
+
+console.log(showProgrammingLangs(personalPlanPeter));
+
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
