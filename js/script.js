@@ -623,20 +623,30 @@ console.log(q);
 function showExperience(plan) {
     const {exp} = plan.skills;
     return exp;
-}
 
-console.log(showExperience(personalPlanPeter));
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
 
-function showProgrammingLangs(plan) {
-    const programmingLangs = plan.skills.programmingLangs;
-    let str = '';
-    for (let i in programmingLangs) {
-        str += `Язык ${i} изучен на ${programmingLangs[i]}\n`
+function showFamily(arr) {
+    let newFamily = "";
+    arr.forEach(function(fam) {
+        newFamily += `${fam} `;
+    })
+    if (arr.length > 0) {
+        return `Семья состоит из: ${newFamily}`
+    } else {
+        return "Семья пуста"
     }
-    return str;
 }
 
-console.log(showProgrammingLangs(personalPlanPeter));
+console.log(showFamily(family));
 
 
-console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    arr.forEach(city => {
+        console.log(city.toLowerCase())
+    })
+}
+
+standardizeStrings(favoriteCities);
