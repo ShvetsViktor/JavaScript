@@ -1,21 +1,10 @@
-// "use strict"
-
-function showFirstMessage(text) {
-    console.log(text)
-}
-
-showFirstMessage('Hello world')
-
-function calc(a, b) {
-    return (a + b);
-}
-
-console.log(calc(1, 3))
-
-function ret() {
-    let num = 50;
-    return num;
-}
-
-const anotherNum = ret();
-console.log(anotherNum);
+const person = {
+    name: "Peter",
+    age: 29,
+    greet: function() {
+      console.log(`Hello, my name is ${this.name}`);
+    }
+  };
+  
+  person.greet();  // Выведет: "Hello, my name is Peter"
+  
