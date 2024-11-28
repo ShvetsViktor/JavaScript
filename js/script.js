@@ -21,6 +21,12 @@ function copy(mainObj) {
     }
     return copyObj
 }
+// const newNumbers = copy(numbers);
+
+// newNumbers.a = 10;
+
+// console.log(newNumbers)
+// console.log(numbers)
 
 const numbers = {
     a: 2,
@@ -32,26 +38,19 @@ const numbers = {
 
 };
 
-const newNumbers = copy(numbers);
-
-newNumbers.a = 10;
-
-console.log(newNumbers)
-console.log(numbers)
-
-
 const add = {
     d: 23,
     e: 34
 };
 
-const clone = Object.assign({}, add);
+console.log(Object.assign(numbers, add)); // Копируем свойства объекта add в объект numbers
+
+const clone = Object.assign({}, add); // Создаём поверхностную копию объекта add
 
 
 
 clone.d = 20;
 
-console.log(Object.assign(numbers, add));
 console.log(add);
 console.log(clone);
 
