@@ -567,6 +567,7 @@ console.log(showProgrammingLangs(personalPlanPeter));
 console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
 "use strict"
+// "use strict"
 
 
 const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Sam'];
@@ -625,28 +626,40 @@ function showExperience(plan) {
     return exp;
 
 const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+const someString = 'This is some strange string';
 
-function showFamily(arr) {
-    let newFamily = "";
-    arr.forEach(function(fam) {
-        newFamily += `${fam} `;
-    })
-    if (arr.length > 0) {
-        return `Семья состоит из: ${newFamily}`
+function reverse(str) {
+    let array = [];
+    let newArray = '';
+
+    if (typeof(str) === 'string') {
+        array = str.split('');
+        array.reverse();
+        newArray = array.join('');
     } else {
-        return "Семья пуста"
+        newArray += 'Ошибка!';
     }
+
+    return newArray
 }
 
-console.log(showFamily(family));
+console.log(reverse(someString));
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+let allCurr = [...baseCurrencies, ...additionalCurrencies];
 
 
-const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
-
-function standardizeStrings(arr) {
-    arr.forEach(city => {
-        console.log(city.toLowerCase())
-    })
+function availableCurr(arr, missingCurr) {
+        let outPut = arr.length <= 0 ? `Нет доступных валют` : `Доступные валюты:\n`;
+        
+        for (let i of arr) {
+            if (i !== missingCurr) {
+                outPut += `${i}\n`;
+                }
+            }
+        
+        return outPut;
 }
 
-standardizeStrings(favoriteCities);
+console.log(availableCurr(allCurr, 'UAH'));
