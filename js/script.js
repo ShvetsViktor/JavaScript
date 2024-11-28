@@ -1,18 +1,21 @@
-"use strict"
+// "use strict"
 
 
-const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+const someString = 'This is some strange string';
 
-function showFamily(arr) {
-    let newFamily = "";
-    arr.forEach(function(fam) {
-        newFamily += `${fam} `;
-    })
-    if (arr.length > 0) {
-        return `Семья состоит из: ${newFamily}`
+function reverse(str) {
+    let array = [];
+    let newArray = '';
+
+    if (typeof(str) === 'string') {
+        array = str.split('');
+        array.reverse();
+        newArray = array.join('');
     } else {
-        return "Семья пуста"
+        newArray += 'Ошибка!';
     }
+
+    return newArray
 const personalPlanPeter = {
     name: "Peter",
     age: "29",
@@ -89,6 +92,26 @@ function showExperience(plan) {
     return exp;
 }
 
+console.log(reverse(someString));
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+let allCurr = [...baseCurrencies, ...additionalCurrencies];
+
+
+function availableCurr(arr, missingCurr) {
+        let outPut = arr.length <= 0 ? `Нет доступных валют` : `Доступные валюты:\n`;
+        
+        for (let i of arr) {
+            if (i !== missingCurr) {
+                outPut += `${i}\n`;
+                }
+            }
+        
+        return outPut;
+}
+
+console.log(availableCurr(allCurr, 'UAH'));
 console.log(showFamily(family));
 
 
