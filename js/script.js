@@ -1,6 +1,18 @@
 // "use strict"
 
 
+function hello() {
+    console.log("Hello world")
+}
+
+hello();
+
+function hi() {
+    console.log("Say hi")
+}
+
+hi();
+
 const arr = [1, 35, 13, 2, 23 ];
 arr.sort(compareNum);
 
