@@ -299,73 +299,25 @@ console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 "use strict"
 
 
-const shoppingMallData = {
-    shops: [
-        {
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000
-};
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Sam'];
 
+function sortStudentsByGroups(arr) {
+    arr.sort();
+    const a = [], b = [], c = [], rest = [];
 
-function isBudgetEnough(data) {
-    const {height, moneyPer1m3, budget} = data;
-    const shops = data.shops;
-
-    function totalPrice() {
-        let totalSquare = 0;
-        
-        for (let i of shops) {
-            const {width, length} = i;
-    
-            function squareOfRoom() {
-                let square = width * length;
-    
-                return square;
-            }
-            
-            totalSquare += squareOfRoom(); 
+    for (let i = 0; i < arr.length; i++) {
+        if (i < 3) {
+            a.push(arr[i]);
+        } else if (i < 6) {
+            b.push(arr[i]);
+        } else if (i < 9) {
+            c.push(arr[i]);
+        } else {
+            rest.push(arr[i]);
         }
-    
-        // console.log(totalSquare);
-    
-        function volumeOfRooms() {
-            return totalSquare * height;
-        }
-    
-        let volume = volumeOfRooms();
-        
-        // console.log(volume);
-    
-        function estBudget() {
-            return volume * moneyPer1m3;
-        }
-    
-        return estBudget();
     }
 
-
-    if (totalPrice() <= budget) {
-        return 'Бюджета достаточно'
-    } else {
-        return 'Бюджета недостаточно'
-    }
+    return [a, b, c, `Оставшиеся студенты: ${rest.length === 0 ? '-' : rest.join(', ')}`]
 }
 
-console.log(isBudgetEnough(shoppingMallData));
+console.log(sortStudentsByGroups(students));
