@@ -682,6 +682,12 @@ function sortStudentsByGroups(arr) {
     arr.sort();
     const a = [], b = [], c = [], rest = [];
 
+
+// Merged payment wiuth main 
+
+
+const arr = [2, 3, 6, 8, 10];
+
     for (let i = 0; i < arr.length; i++) {
         if (i < 3) {
             a.push(arr[i]);
