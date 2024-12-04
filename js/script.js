@@ -5,6 +5,7 @@
 function hello() {
     console.log("Hello world")
     debugger;
+    debugger;
 }
 
 hello();
@@ -16,6 +17,7 @@ function hi() {
 hi();
 
 const arr = [1, 35, 13, 2, 23 ];
+
 
 arr.sort(compareNum);
 
@@ -53,6 +55,13 @@ const numbers = {
         y: 4
     }
 };
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 10;
+
+// console.log(newNumbers)
+// console.log(numbers)
 
 
 const add = {
@@ -314,6 +323,21 @@ function showExperience(plan) {
     return exp;
 }
 
+function reverse(str) {
+    let array = [];
+    let newArray = '';
+
+    if (typeof(str) === 'string') {
+        array = str.split('');
+        array.reverse();
+        newArray = array.join('');
+    } else {
+        newArray += 'Ошибка!';
+    }
+
+    return newArray
+}
+
 const baseCurrencies = ['USD', 'EUR'];
 const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
 let allCurr = [...baseCurrencies, ...additionalCurrencies];
@@ -499,11 +523,13 @@ function isBudgetEnough(data) {
         }
     
 
+
         function volumeOfRooms() {
             return totalSquare * height;
         }
     
         let volume = volumeOfRooms();
+       
        
     
         function estBudget() {
@@ -523,6 +549,7 @@ function isBudgetEnough(data) {
 
 // console.log(isBudgetEnough(shoppingMallData));
 
+// console.log(isBudgetEnough(shoppingMallData));
 
 
 // Преобразования To Number
@@ -704,3 +731,6 @@ const arr = [2, 3, 6, 8, 10];
 }
 
 console.log(sortStudentsByGroups(students));
+// console.log(sortStudentsByGroups(students));
+
+
