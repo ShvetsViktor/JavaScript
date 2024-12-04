@@ -126,7 +126,6 @@ const personalPlanPeter = {
             str += `${lang.toUpperCase()} `;
         });
 
-<<<<<<< HEAD
 const oldArray = ['a', 'b', 'c'];
 const newArray = oldArray.slice();
 
@@ -172,10 +171,8 @@ console.log(clone);
 const q = {
     one: 1,
     two: 2
-=======
         return str;
     }
->>>>>>> a30eacc (methods of objects)
 };
 
 function showExperience(plan) {
@@ -217,7 +214,6 @@ function standardizeStrings(arr) {
 standardizeStrings(favoriteCities);
 console.log(showExperience(personalPlanPeter));
 
-<<<<<<< HEAD
 console.log(newObj);
 console.log(q);
 // const arr = [ 'apple', 'mango', 'papaya', 'dorian', 'greypfruit' ];
@@ -290,7 +286,6 @@ console.log(typeof(Boolean('4')));
 console.log(typeof(!!"223")); // Два знака отрицания 
                               // преобразуют строку в логический 
                               // тип данных
-=======
 function showProgrammingLangs(plan) {
     const programmingLangs = plan.skills.programmingLangs;
     let str = '';
@@ -304,7 +299,6 @@ console.log(showProgrammingLangs(personalPlanPeter));
 
 
 console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
->>>>>>> a30eacc (methods of objects)
 
 "use strict"
 
@@ -331,3 +325,17 @@ function sortStudentsByGroups(arr) {
 }
 
 console.log(sortStudentsByGroups(students));
+console.log(sortStudentsByGroups(students));
+
+
+// Merged payment wiuth main 
+
+
+const arr = [2, 3, 6, 8, 10];
+
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}  // перебор через классический цикл
+
+for (let value of arr) {
+    console.log(value)
