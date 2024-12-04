@@ -312,6 +312,8 @@ console.log(sortStudentsByGroups(students));
 
 
 // Merged payment wiuth main 
+
+
 const arr = [2, 3, 6, 8, 10];
 
 for (let i = 0; i < arr.length; i++) {
