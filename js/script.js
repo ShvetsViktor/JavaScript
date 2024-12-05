@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // "use strict"
 
 function hello() {
@@ -90,33 +91,37 @@ const personalPlanPeter = {
         exp: '1 month'
     },
 };
-
-function showAgeAndLangs(object) {
-    const {age} = object;
-    const {languages} = object.skills;
-    let str = `Мне ${age} и я владею языками: `; 
-    languages.forEach(function(lang) {
-        str += `${lang.toUpperCase()} `;
-    });
-    return str;
-};
+=======
+"use strict"
 
 
-function reverse(str) {
-    let array = [];
-    let newArray = '';
+// let number = 5; debugger
+>>>>>>> a490dbe (some minor changes)
 
-    if (typeof(str) === 'string') {
-        array = str.split('');
-        array.reverse();
-        newArray = array.join('');
-    } else {
-        newArray += 'Ошибка!';
+// function logNumber() {
+//     console.log(number); debugger
+// }
+
+// number = 6; debugger
+
+// logNumber();
+
+
+
+function createCounter() {
+    let counter = 0;
+
+    const myFunction = function() {debugger
+        counter = counter + 1; debugger
+        return counter;debugger
     }
 
-    return newArray
+    return myFunction;
 }
+debugger
+// Function expression
 
+<<<<<<< HEAD
 const personalPlanPeter = {
     name: "Peter",
     age: "29",
@@ -479,4 +484,11 @@ console.log(sortStudentsByGroups(students));
 console.log(sortStudentsByGroups(students));
 // console.log(sortStudentsByGroups(students));
 
+=======
+const increment = createCounter();
+const c1 = increment();debugger
+const c2 = increment();debugger
+const c3 = increment();debugger
+>>>>>>> a490dbe (some minor changes)
 
+console.log(c1, c2, c3);
