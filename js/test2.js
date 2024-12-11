@@ -1,3 +1,4 @@
+
 const restorantData = {
     menu: [
         {
@@ -26,43 +27,32 @@ const restorantData = {
 
 function isOpen(prop) {
     let answer = '';
-    !prop ? answer = 'Закрыто' : answer = 'Открыто';
+    prop ? answer = 'Открыто' : answer = 'Закрыто';
 
     return answer;
 }
 
-console.log(isOpen(restorantData.openNow));
+console.log(isOpen(restorantData.openNow))
 
 function isAverageLunchPriceTrue(fDish, sDish, average) {
-    if (((parseInt(fDish.price)) + (parseInt(sDish.price))) / 2 < +average.slice(0, -1)) {
+    if (+fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1)) < +average.slice(0,-1)) {
         return 'Цена ниже средней';
     } else {
         return 'Цена выше средней';
     }
 }
 
-console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[3], restorantData.averageLunchPrice));
+console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
 
 function transferWaitors(data) {
-    // const copy = {...data};
-    let copy = {};
-    let key;
-    for (key in data) {
-        if (Array.isArray(data[key])) {
-            copy[key] = [];
-            for (let i of data[key]) {
-                copy[key].push(Object.assign({}, i));
-            }
-        } else if (typeof(copy[key]) === 'Object') {
-            copy[key].push(Object.assign({}, data[key]));
-        } else {
-            copy[key] = data[key];
-        }
-    }
+    const copy = Object.assign({}, data);
 
+    // Нам просто нужно менять весь массив данных,
+    // а не лезть напрямую менять каждого из сотрудников
+    // Так как это верхний уровень объекта, то значение 
+    // будет меняться только у копии
     copy.waitors = [{name: 'Mike', age: 32}];
     return copy;
 }
 
-console.log(transferWaitors(restorantData));
-console.log(restorantData);
+transferWaitors(restorantData);
