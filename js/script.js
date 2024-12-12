@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // "use strict"
 
 function hello() {
@@ -93,34 +94,80 @@ const personalPlanPeter = {
 };
 =======
 "use strict"
+=======
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar',
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
+        }
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
+};
+>>>>>>> c9d53cb (recursion)
 
+function isOpen(prop) {
+    let answer = '';
+    !prop ? answer = 'Закрыто' : answer = 'Открыто';
 
+<<<<<<< HEAD
 // let number = 5; debugger
 >>>>>>> a490dbe (some minor changes)
+=======
+    return answer;
+}
+>>>>>>> c9d53cb (recursion)
 
-// function logNumber() {
-//     console.log(number); debugger
-// }
+console.log(isOpen(restorantData.openNow));
 
-// number = 6; debugger
+function isAverageLunchPriceTrue(fDish, sDish, average) {
+    if (((parseInt(fDish.price)) + (parseInt(sDish.price))) / 2 < +average.slice(0, -1)) {
+        return 'Цена ниже средней';
+    } else {
+        return 'Цена выше средней';
+    }
+}
 
-// logNumber();
+console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[3], restorantData.averageLunchPrice));
 
-
-
-function createCounter() {
-    let counter = 0;
-
-    const myFunction = function() {debugger
-        counter = counter + 1; debugger
-        return counter;debugger
+function transferWaitors(data) {
+    // const copy = {...data};
+    let copy = {};
+    let key;
+    for (key in data) {
+        if (Array.isArray(data[key])) {
+            copy[key] = [];
+            for (let i of data[key]) {
+                copy[key].push(Object.assign({}, i));
+            }
+        } else if (typeof(copy[key]) === 'Object') {
+            copy[key].push(Object.assign({}, data[key]));
+        } else {
+            copy[key] = data[key];
+        }
     }
 
-    return myFunction;
+    copy.waitors = [{name: 'Mike', age: 32}];
+    return copy;
 }
-debugger
-// Function expression
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const personalPlanPeter = {
     name: "Peter",
@@ -492,3 +539,7 @@ const c3 = increment();debugger
 >>>>>>> a490dbe (some minor changes)
 
 console.log(c1, c2, c3);
+=======
+console.log(transferWaitors(restorantData));
+console.log(restorantData);
+>>>>>>> c9d53cb (recursion)
