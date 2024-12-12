@@ -1,8 +1,8 @@
 // "use strict"
 
-
 function hello() {
     console.log("Hello world")
+    debugger;
 }
 
 hello();
@@ -14,6 +14,7 @@ function hi() {
 hi();
 
 const arr = [1, 35, 13, 2, 23 ];
+
 arr.sort(compareNum);
 
 function compareNum(a, b) {
@@ -43,8 +44,8 @@ const numbers = {
         x: 7,
         y: 4
     }
-
 };
+
 
 const add = {
     d: 23,
@@ -66,6 +67,16 @@ const q = {
     one: 1,
     two: 2
 };
+
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 10;
+
+// console.log(newNumbers)
+// console.log(numbers)
+
+
 
 const personalPlanPeter = {
     name: "Peter",
@@ -90,9 +101,6 @@ function showAgeAndLangs(object) {
     return str;
 };
 
-console.log(showAgeAndLangs(personalPlanPeter));
-
-const someString = 'This is some strange string';
 
 function reverse(str) {
     let array = [];
@@ -107,6 +115,8 @@ function reverse(str) {
     }
 
     return newArray
+}
+
 const personalPlanPeter = {
     name: "Peter",
     age: "29",
@@ -180,8 +190,6 @@ function showExperience(plan) {
     return exp;
 }
 
-console.log(reverse(someString));
-
 const baseCurrencies = ['USD', 'EUR'];
 const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
 let allCurr = [...baseCurrencies, ...additionalCurrencies];
@@ -198,6 +206,7 @@ function availableCurr(arr, missingCurr) {
         
         return outPut;
 }
+
 
 console.log(availableCurr(allCurr, 'UAH'));
 console.log(showFamily(family));
@@ -248,6 +257,148 @@ console.log("https://facebook.com/catalog/" + num);
 // Реальный пример использования конкотенации. Передавать стили в виде строки
 
 const fontSize = 26 + 'px'; //  Формируется строка
+
+
+// Objects
+
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function() {
+        this.count = +prompt('Сколько фильмов вы уже просмотрели?', '');
+        
+        while (this.count == null || isNaN(this.count) || this.count == '') {
+            this.count = +prompt('Сколько фильмов вы уже просмотрели?', '');
+        }
+    },
+    rememberMyFilms: function() {
+        for (let i = 0; i < 2; i++) {
+            const a = prompt('Один из последних просмотренных фильмов?', '').trim(),
+                  b = prompt('На сколько оцените его?', '');
+        
+            if (a != null && b != null && a != '' && b != '' && a.length <= 50 && b.length <= 50) {
+                this.movies[a] = b;
+                console.log("done");
+            } else {
+                console.log('error');
+                i--;
+            }
+        }
+    },
+    detectPersonalLevel: function() {
+        if (this.count <= 10) {
+            console.log('Просмотрено слишком мало фильмов.');
+        } else if (this.count <= 30 && this.count >= 10) {
+            console.log('Вы классический зритель.');
+        } else if (this.count > 30) {
+            console.log('Вы киноман.');
+        } else {
+            console.log('Произошла ошибка.');
+        }
+    },
+    showMyDB: function() {
+        if (this.privat == false) {
+            console.log(this);
+        }
+    },
+    writeYourGenres: function() {
+        for (let i = 1; i <= 3; i++) {
+            let genre = prompt(`Ваш любимый жанр под номером ${i}`).toLowerCase();
+            
+            if (genre === '' || genre === null) {
+                i--;
+
+            } else {
+                this.genres[i - 1] = genre;
+                this.genres.sort();
+            }
+        }
+        this.genres.forEach((genre, index) => console.log(`Любимый жанр #${index + 1} - это ${genre}`));
+    },
+    toggleVisibleMyDB: function() {
+        if (this.privat) {
+            this.privat = false
+        } else {
+            this.privat = true
+        }
+    }
+};
+
+
+// task *
+
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+};
+
+
+function isBudgetEnough(data) {
+    const {height, moneyPer1m3, budget} = data;
+    const shops = data.shops;
+
+    function totalPrice() {
+        let totalSquare = 0;
+        
+        for (let i of shops) {
+            const {width, length} = i;
+    
+            function squareOfRoom() {
+                let square = width * length;
+    
+                return square;
+            }
+            
+            totalSquare += squareOfRoom(); 
+        }
+    
+
+        function volumeOfRooms() {
+            return totalSquare * height;
+        }
+    
+        let volume = volumeOfRooms();
+       
+    
+        function estBudget() {
+            return volume * moneyPer1m3;
+        }
+    
+        return estBudget();
+    }
+
+
+    if (totalPrice() <= budget) {
+        return 'Бюджета достаточно'
+    } else {
+        return 'Бюджета недостаточно'
+    }
+}
+
+// console.log(isBudgetEnough(shoppingMallData));
+
 
 
 // Преобразования To Number
@@ -326,5 +477,6 @@ function sortStudentsByGroups(arr) {
 
 console.log(sortStudentsByGroups(students));
 console.log(sortStudentsByGroups(students));
+// console.log(sortStudentsByGroups(students));
 
 
