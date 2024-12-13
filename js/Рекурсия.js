@@ -65,5 +65,6 @@ pow(x(2), n(2)) {
 
 pow(x(2), n(1)) {
     return x('if n = 1 return x );
+}
 
 console.log(pow(2, 4));
